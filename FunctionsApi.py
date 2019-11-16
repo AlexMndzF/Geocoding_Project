@@ -18,12 +18,13 @@ def requestfoursquare(query):
     '''
     url = 'https://api.foursquare.com/v2/venues/explore'
     params = dict(
-      client_id=os.getenv("CLIENT_ID"),
-      client_secret=os.getenv("CLIENT_SECRET"),
-      v='20180323',
-      ll='40.7243,-74.0018',
-      query=query,
-      limit=200
+        client_id=os.getenv("CLIENT_ID"),
+        client_secret=os.getenv("CLIENT_SECRET"),
+        v='20180323',
+        ll='40.7243,-74.0018',
+        query=query,
+        limit=200
+        radius = 1000 #1000 metros
     )
     resp = requests.get(url=url, params=params)
     data = json.loads(resp.text)
